@@ -5,9 +5,20 @@ Este repositório é um backup das minhas configurações de desenvolvimento no 
 ## Estrutura
 
 - `.config/`: Contém configurações de aplicativos como Wezterm, Starship, etc.
-- `profile/`: Contém arquivos de perfil de shell como `.bashrc` e `.bash_profile`.
-- `git/`: Configurações do Git.
-- `nvim/`: (Placeholder) Para as configurações do Neovim.
+- `.bashrc`, `.bash_profile`: Arquivos de perfil do shell.
+- `.gitconfig`: Configurações do Git.
+- `nvim/`: Para as configurações do Neovim.
+
+## Pré-requisitos
+
+Para utilizar este ambiente de desenvolvimento, você precisará ter os seguintes softwares instalados no seu sistema Windows:
+
+-   **Git**: Essencial para versionamento de código e para clonar este repositório.
+-   **PowerShell**: A maioria dos comandos de configuração e restauração são baseados em PowerShell.
+-   **Neovim**: Para usar as configurações de editor fornecidas.
+-   **Scoop**: Um gerenciador de pacotes para Windows, útil para instalar e gerenciar as ferramentas de desenvolvimento. (Embora não explicitamente usado nos scripts de link simbólico, é uma ferramenta comum neste tipo de ambiente).
+-   **Wezterm**: Terminal altamente configurável, cujas configurações são incluídas.
+-   **Starship**: Prompt customizável para o shell.
 
 ## Como Restaurar
 
@@ -31,9 +42,7 @@ New-Item -ItemType SymbolicLink -Path $env:USERPROFILE\.gitconfig -Target $PWD\.
 
 ## Neovim
 
-A configuração do Neovim não foi encontrada automaticamente. O local padrão é `C:\Users\<seu-usuario>\AppData\Local\nvim`.
-
-Copie sua configuração do Neovim para a pasta `nvim` neste repositório. Para restaurar, crie um link simbólico:
+As configurações do Neovim já estão incluídas na pasta `nvim/` deste repositório. Para utilizá-las, crie um link simbólico conforme o exemplo abaixo:
 
 ```powershell
 # (Execute como Administrador)
@@ -43,10 +52,3 @@ Remove-Item $env:LOCALAPPDATA\nvim -Recurse -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Junction -Path $env:LOCALAPPDATA\nvim -Target $PWD\nvim
 ```
 
-## Próximos Passos
-
-1.  Initialize um repositório Git: `git init`
-2.  Adicione todos os arquivos: `git add .`
-3.  Faça o commit inicial: `git commit -m "Commit inicial do ambiente de desenvolvimento"`
-4.  Adicione um repositório remoto: `git remote add origin <URL_DO_SEU_REPOSITORIO_NO_GITHUB>`
-5.  Envie para o GitHub: `git push -u origin master`
