@@ -1,0 +1,25 @@
+# Ignore SSH private keys
+id_*
+*.key
+
+# Ignore common secret files
+.env
+*.pem
+*.p12
+*.pfx
+client_secret.json
+credentials.json
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore large cache directories
+.cargo/registry
+.cargo/git
+.npm/
+.cache/
+node_modules/
+__pycache__/
+.vscode/workspaceStorage/
+.history/
